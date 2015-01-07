@@ -1,0 +1,41 @@
+{
+  "name": "level-glob",
+  "version": "0.0.0",
+  "description": "A read stream filtered and ordered by glob patterns",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test/*.js"
+  },
+  "keywords": [
+    "level",
+    "levelup",
+    "glob",
+    "filter",
+    "stream",
+    "glob-stream"
+  ],
+  "author": "Vincent Weevers (http://vincentweevers.nl)",
+  "license": "MIT",
+  "devDependencies": {
+    "concat-stream": "~1.4.7",
+    "level-test": "~1.6.6",
+    "tape": "~3.0.3"
+  },
+  "repository": "git://github.com/vweevers/level-glob",
+  "bugs": "https://github.com/vweevers/level-glob/issues",
+  "homepage": "https://github.com/vweevers/level-glob",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "dependencies": {
+    "absolute-glob": "~0.1.0",
+    "glob2base": "0.0.12",
+    "is-glob": "~0.3.0",
+    "micromatch": "~1.0.1",
+    "minimatch": "~2.0.1",
+    "ordered-read-streams": "~0.1.0",
+    "through2": "~0.6.3",
+    "unique-stream": "~2.0.2",
+    "xtend": "~4.0.0"
+  }
+}
