@@ -1,12 +1,11 @@
 var through2   = require('through2').obj
   , micromatch = require('micromatch')
   , isGlob     = require('is-glob')
-  , Minimatch  = require("minimatch").Minimatch
-  , glob2base  = require('glob2base')
   , ordered    = require('ordered-read-streams')
   , unique     = require('unique-stream')
   , absolute   = require('absolute-glob')
   , xtend      = require('xtend')
+  , globParent = require('glob-parent')
 
 var valuesAndKeys = {values: true, keys: true}
 
@@ -58,7 +57,7 @@ function globStream(db, globs, opts) {
     var glob = positive.glob, i = positive.index, range, stream
 
     if (isGlob(glob)) {
-      var base = getBase(glob)
+      var base = absolute(globParent(glob))
 
       // stream range starting with glob base
       range = xtend(opts, { gte: base, lt: base+'\xff' }, valuesAndKeys)
@@ -121,11 +120,6 @@ function setBase(base) {
     if (typeof value == 'object') value.base = base
     next(null, item)
   })
-}
-
-function getBase(glob) {
-  var mm = new Minimatch(glob)
-  return absolute(glob2base({minimatch: mm}))
 }
 
 function filterGlobs(globs) {
