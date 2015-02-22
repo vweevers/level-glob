@@ -1,6 +1,6 @@
 {
   "name": "level-glob",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "A read stream filtered and ordered by glob patterns",
   "main": "index.js",
   "scripts": {
